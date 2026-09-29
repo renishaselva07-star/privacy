@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111827">
+<title>PrivacyGuard AI — Learn Privacy with Confidence</title>
+<style>
+:root{--ink:#19283b;--muted:#78869a;--line:#e5ebf2;--blue:#386cf4;--mint:#9cebd4;--paper:#f3f6fa}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:26px;display:grid;place-items:center;background:radial-gradient(circle at 8% 8%,#dce9ff,transparent 31%),radial-gradient(circle at 94% 90%,#d8f5e8,transparent 29%),var(--paper);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}
+.app{width:min(1160px,100%);min-height:min(790px,calc(100vh - 52px));display:grid;grid-template-columns:320px 1fr;background:#fff;border-radius:28px;overflow:hidden;border:1px solid #fff;box-shadow:0 24px 80px #1a31501a}
+aside{background:linear-gradient(155deg,#111827,#183b50 65%,#175f61);color:#f5fbff;padding:30px 25px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+aside:before,aside:after{content:"";position:absolute;border:1px solid #ffffff19;border-radius:50%;width:330px;height:330px;right:-220px;top:235px}aside:after{width:430px;height:430px;right:-270px;top:185px}
+.brand{display:flex;align-items:center;gap:12px;position:relative;z-index:1}.logo{width:43px;height:43px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#c8f7e4,#8de4cf);color:#153a43;font-size:23px;font-weight:900}.brand-name{font-size:17px;font-weight:800;letter-spacing:-.4px}.brand-sub{font-size:10px;color:#b4d5d8;letter-spacing:1.7px;text-transform:uppercase;margin-top:4px}
+.hero{margin-top:64px;position:relative;z-index:1}.eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#9cebd4}.hero h1{font-size:35px;line-height:1.08;letter-spacing:-1.5px;margin:14px 0}.hero p{font-size:13px;line-height:1.75;color:#c0d3df}
+.security-art{height:180px;position:relative;margin:18px 0 22px;z-index:1;display:grid;place-items:center}.shield{width:120px;height:140px;display:grid;place-items:center;clip-path:polygon(50% 0,94% 17%,88% 66%,50% 100%,12% 66%,6% 17%);background:linear-gradient(145deg,#b9f5dd,#61c9c2);color:#123e48;font-size:55px;filter:drop-shadow(0 14px 20px #061b2030)}.orbit{position:absolute;width:180px;height:180px;border:1px solid #a5f0db50;border-radius:50%}.orbit:before,.orbit:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:#b9f5dd}.orbit:before{top:20px;right:25px}.orbit:after{bottom:27px;left:17px}
+.tip{margin-top:auto;padding:15px;border:1px solid #ffffff24;border-radius:16px;background:#ffffff0b;position:relative;z-index:1}.tip b{font-size:12px;display:block;margin-bottom:6px}.tip span{font-size:11px;line-height:1.6;color:#c1d7dc}
+main{min-width:0;display:flex;flex-direction:column}.top{height:82px;padding:0 30px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.top-title{font-size:15px;font-weight:800}.top-sub{font-size:11px;color:var(--muted);margin-top:5px}.status{display:flex;align-items:center;gap:8px;padding:8px 11px;border-radius:25px;background:#effaf5;color:#27825e;font-size:11px;font-weight:750}.dot{width:7px;height:7px;background:#36c98a;border-radius:50%;box-shadow:0 0 0 4px #d9f6e8}
+.chat{padding:27px 30px 10px;flex:1;min-height:430px;display:flex;flex-direction:column;overflow:hidden}.welcome{margin:6px 0 21px}.welcome h2{font-size:23px;letter-spacing:-.7px;margin:0 0 8px}.welcome p{font-size:13px;line-height:1.6;color:var(--muted);margin:0}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:20px}.topic{padding:14px;text-align:left;border:1px solid var(--line);background:#fbfcff;border-radius:15px;cursor:pointer;transition:.2s;color:var(--ink)}.topic:hover{transform:translateY(-2px);border-color:#a9c7ff;background:#f5f8ff}.topic b{display:block;font-size:12px;margin-bottom:5px}.topic span{display:block;color:var(--muted);font-size:11px;line-height:1.5}
+#messages{display:flex;flex-direction:column;gap:15px;overflow-y:auto;flex:1;padding:3px 3px 15px;scroll-behavior:smooth}.message{max-width:87%;display:flex;flex-direction:column;gap:5px}.message.user{align-self:flex-end;align-items:flex-end}.message.bot{align-self:flex-start}.speaker{font-size:10px;font-weight:800;letter-spacing:.5px;color:#8a97a9}.bubble{font-size:13px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere;padding:12px 15px;border-radius:16px}.user .bubble{background:linear-gradient(135deg,#386cf4,#4e62e8);color:#fff;border-bottom-right-radius:5px}.bot .bubble{background:#f1f5fa;border:1px solid #e8eef5;color:#34435a;border-bottom-left-radius:5px}
+.composer-wrap{padding:13px 30px 22px}.composer{display:flex;align-items:flex-end;gap:10px;padding:9px;border:1px solid #dfe6f1;border-radius:18px;background:#fbfcff;box-shadow:0 5px 18px #20375a08}textarea{flex:1;min-height:38px;max-height:130px;resize:none;border:0;outline:0;background:transparent;color:var(--ink);font:inherit;font-size:13px;line-height:1.5;padding:9px 8px}textarea::placeholder{color:#9aa6b8}#send{width:42px;height:42px;border:0;border-radius:12px;background:var(--blue);color:white;font-size:19px;cursor:pointer;transition:.2s}#send:hover{background:#2057df}#send:disabled{opacity:.55;cursor:wait}.foot{text-align:center;color:#9aa5b5;font-size:10px;margin:10px 0 0}.typing{display:inline-flex;gap:4px;padding:5px}.typing i{width:5px;height:5px;background:#8a9bb4;border-radius:50%;animation:pulse 1s infinite alternate}.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}@keyframes pulse{to{opacity:.25;transform:translateY(-3px)}}
+@media(max-width:760px){body{padding:0;display:block}.app{width:100%;min-height:100vh;border-radius:0;grid-template-columns:1fr}aside{padding:19px 22px;min-height:auto}.hero{margin-top:25px}.hero h1{font-size:28px}.hero p{max-width:440px}.security-art,.tip{display:none}.top{height:72px;padding:0 20px}.chat{padding:22px 20px 10px;min-height:430px}.composer-wrap{padding:12px 20px 18px}}@media(max-width:420px){.cards{grid-template-columns:1fr}.message{max-width:95%}.status{font-size:10px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+  <div class="brand"><div class="logo">◇</div><div><div class="brand-name">PrivacyGuard AI</div><div class="brand-sub">Understand digital privacy</div></div></div>
+  <section class="hero"><div class="eyebrow">Your data, your choices</div><h1>Know your rights.<br>Protect your privacy.</h1><p>A learning companion for digital privacy, data protection, online tracking, account security, and the principles behind safer technology.</p></section>
+  <div class="security-art" aria-hidden="true"><div class="orbit"></div><div class="shield">✓</div></div>
+  <div class="tip"><b>◇ Privacy starts with understanding</b><span>Learn general privacy and security concepts. For urgent account compromise or legal concerns, consult the relevant service or qualified professional.</span></div>
+</aside>
+<main>
+<header class="top"><div><div class="top-title">Privacy learning studio</div><div class="top-sub">Ask a question. Build safer habits.</div></div><div class="status"><span class="dot"></span> AI ready</div></header>
+<section class="chat">
+  <div class="welcome" id="welcome"><h2>What would you like to understand?</h2><p>Choose a topic or ask your own privacy-related study question.</p></div>
+  <div class="cards" id="cards">
+    <button class="topic" data-prompt="What is personal data, and what counts as sensitive personal data?"><b>◈ Personal data</b><span>Understand identifiers and sensitive information</span></button>
+    <button class="topic" data-prompt="How do cookies and online tracking work?"><b>◎ Cookies & tracking</b><span>Learn how websites remember and measure activity</span></button>
+    <button class="topic" data-prompt="What is end-to-end encryption?"><b>⌑ Encryption</b><span>Explore how information can be protected</span></button>
+    <button class="topic" data-prompt="What are some principles of privacy by design?"><b>✧ Privacy by design</b><span>Build privacy into systems from the start</span></button>
+  </div>
+  <div id="messages" aria-live="polite"></div>
+</section>
+<div class="composer-wrap"><form class="composer" id="chat-form"><textarea id="message-input" rows="1" maxlength="6000" placeholder="Ask a digital privacy or data protection question…" aria-label="Your question"></textarea><button id="send" type="submit" aria-label="Send message">↑</button></form><p class="foot">For educational purposes. Avoid sharing passwords or sensitive personal data in chat.</p></div>
+</main>
+</div>
+<script>
+const form=document.getElementById("chat-form"),input=document.getElementById("message-input"),send=document.getElementById("send"),messages=document.getElementById("messages");
+function addMessage(text,role){const wrap=document.createElement("div");wrap.className=`message ${role}`;const label=document.createElement("div");label.className="speaker";label.textContent=role==="user"?"YOU":"PRIVACYGUARD AI";const bubble=document.createElement("div");bubble.className="bubble";bubble.textContent=text;wrap.append(label,bubble);messages.appendChild(wrap);messages.scrollTop=messages.scrollHeight;return wrap}
+async function sendMessage(text){const message=text.trim();if(!message||send.disabled)return;document.getElementById("welcome").hidden=true;document.getElementById("cards").hidden=true;addMessage(message,"user");input.value="";input.style.height="auto";send.disabled=true;const loading=addMessage("","bot");loading.querySelector(".bubble").innerHTML='<span class="typing" aria-label="Thinking"><i></i><i></i><i></i></span>';try{const response=await fetch("/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message})});const data=await response.json();loading.querySelector(".bubble").textContent=response.ok?data.answer:(data.error||"Something went wrong.");}catch(error){loading.querySelector(".bubble").textContent="Connection problem. Please try again."}finally{send.disabled=false;input.focus();messages.scrollTop=messages.scrollHeight}}
+form.addEventListener("submit",event=>{event.preventDefault();sendMessage(input.value)});input.addEventListener("input",()=>{input.style.height="auto";input.style.height=`${Math.min(input.scrollHeight,130)}px`});input.addEventListener("keydown",event=>{if(event.key==="Enter"&&!event.shiftKey){event.preventDefault();form.requestSubmit()}});document.querySelectorAll(".topic").forEach(button=>button.addEventListener("click",()=>sendMessage(button.dataset.prompt)));
+</script>
+</body>
+</html>
